@@ -1,0 +1,18 @@
+<% provide(:title, 'Create a new subject') %>
+<h1>Create a new subject</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for [:admin, @subject] do |f| %>
+      
+
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.label :description %>
+      <%= f.text_field :description %>
+
+      <%= f.submit "Submit", class: "btn btn-large" %>
+    <% end %>
+  </div>
+</div>
