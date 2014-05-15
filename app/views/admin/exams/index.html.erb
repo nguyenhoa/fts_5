@@ -1,0 +1,8 @@
+<% provide(:title, 'All exams') %>
+<h1>All exams</h1>
+
+<ul class="exams">
+  <% @exams.each do |exam| %>
+    <%= render exam %>
+  <% end %>
+</ul>

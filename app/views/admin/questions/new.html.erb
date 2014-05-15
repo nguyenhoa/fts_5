@@ -4,8 +4,8 @@
 <div class="row">
   <div class="span6 offset3">
     <%= form_for [:admin, @question] do |f| %>
-      <%= render 'field', f: f %>
-    <%= f.submit "Create question", class: "btn btn-large btn-primary" %>
+      <%= render 'question_form', f: f %>
+      <%= f.submit "Create question", class: "btn btn-large btn-primary" %>
     <% end %>
   </div>
 </div>
