@@ -1,0 +1,5 @@
+<li>
+ <%= link_to question.content, admin_question_path(question.id) %>
+  |<%= link_to "edit", edit_admin_question_path(question.id) %>
+  |<%= link_to "delete", [:admin, question], method: :delete, data: { confirm: "You sure?" } %>
+</li>

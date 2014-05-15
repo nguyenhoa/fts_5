@@ -1,0 +1,11 @@
+<% provide(:title, 'Edit question') %>
+<h1>Edit question</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for [:admin, @question] do |f| %>
+      <%= render 'field', f: f %>
+    <%= f.submit "Save", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
