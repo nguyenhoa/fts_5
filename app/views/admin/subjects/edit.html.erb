@@ -4,14 +4,7 @@
 <div class="row">
   <div class="span6 offset3">
     <%= form_for [:admin, @subject] do |f| %>
-      <%= render 'shared/error_messages', object: f.object %>
-
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-
-      <%= f.label :description %>
-      <%= f.text_field :description %>
-
+      <%= render 'subject_form', f: f %>
       <%= f.submit "Submit", class: "btn btn-large" %>
     <% end %>
   </div>

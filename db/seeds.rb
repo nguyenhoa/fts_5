@@ -16,4 +16,5 @@ end
       Option.create(question_id: j, answer: "option#{k}_ques #{i}-#{j}")
     end
   end
+  Exam.create(subject_id: i, total_question: "15", time_limit: "00:30:00")
 end
