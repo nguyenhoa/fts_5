@@ -6,6 +6,7 @@ Fts5::Application.routes.draw do
     resources :users
     resources :subjects
     resources :questions
+    resources :exams
     match "/signin", to: "sessions#new", via: "get"
     match "/signout", to: "sessions#destroy", via: "delete"
   end
