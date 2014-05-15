@@ -1,0 +1,21 @@
+<% provide(:title, @question.id) %>
+
+Content : <%= @question.content %><br>
+Subject : <%= @question.subject.name %><br>
+Options :<br>
+  <table style="text-align: center" border="1">
+    <thead>
+      <tr>
+        <th>Answer</th>
+        <th>Correct</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for option in @question.options %>
+        <tr>
+          <td><%= option.answer %></td>
+          <td><%= option.correct %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>

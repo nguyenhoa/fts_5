@@ -1,0 +1,11 @@
+<%= form_tag(admin_questions_path, :method => "get", id: "search-form") do |f| %>
+  <table>
+    <tr>
+      <td>
+        Subject <%= select_tag 'subject_id', options_from_collection_for_select(Subject.all, :id, :name, params[:subject_id]), include_blank: true %>
+      </td>
+      <td><%= submit_tag "Search", :name => nil %></td>
+    </tr>
+  </table>
+<% end %>
+
