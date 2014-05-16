@@ -1,12 +1,16 @@
 Fts5::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  resources :subjects
+  resources :examinations
   namespace :admin do
     resources "sessions", only: [:new, :create, :destroy]
     resources :users
     resources :subjects
     resources :questions
-    resources :exams
+    resources :examinations do
+      resources :answer_sheets
+    end
     match "/signin", to: "sessions#new", via: "get"
     match "/signout", to: "sessions#destroy", via: "delete"
   end

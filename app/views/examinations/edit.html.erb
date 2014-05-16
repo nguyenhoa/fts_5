@@ -1,0 +1,19 @@
+<% provide(:title, 'Examination') %>
+<h1><%= @examination.subject.name %></h1>
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@examination) do |f| %>
+      
+        <% @examination.questions.each do |question| %>
+          <li>
+            <%=question.content %>
+          </li>
+          <% question.options.each do |option| %>
+            <%= radio_button_tag "question_ids[#{question.id}]", option.id %>
+            <%= option.answer %><br>
+          <% end %>
+        <% end %>
+      <%= f.submit "Submit", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

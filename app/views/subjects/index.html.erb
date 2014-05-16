@@ -1,0 +1,8 @@
+<% provide(:title, 'All subjects') %>
+<h1>All subjects</h1>
+
+<ul class="subjects">
+  <% @subjects.each do |subject| %>
+    <%= render subject %>
+  <% end %>
+</ul>
