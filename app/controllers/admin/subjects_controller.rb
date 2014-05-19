@@ -46,6 +46,6 @@ class Admin::SubjectsController < ApplicationController
   
   private
     def subject_params
-      params.require(:subject).permit(:name, :description)
+      params.require(:subject).permit(:name, :description, :total_question, :time_limit)
     end
 end
