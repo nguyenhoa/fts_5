@@ -1,0 +1,14 @@
+<% if examination.status == -1 %>
+  <li>
+    <%= examination.created_at %>|Testing<br>
+    <%= link_to examination.subject.name, examination_path(examination.id) %>|                        
+    <%= link_to "Start", edit_examination_path(examination.id) %>
+  </li>
+<% else %>
+  <li>
+    <%= examination.created_at %>|Finished<br>
+    <%= examination.subject.name %>|                        
+    <%= examination.sum_correct%>/<%= examination.subject.total_question %>|
+    <%= link_to "View", examination_path(examination.id) %>
+  </li>
+<% end %>

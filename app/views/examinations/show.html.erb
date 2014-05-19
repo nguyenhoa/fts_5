@@ -1,0 +1,18 @@
+<% provide(:title, 'Examination') %>
+<h1><%= @examination.subject.name %></h1>
+Name : <%= current_user.name %><br>
+Result : <%= @examination.sum_correct%>/<%= @examination.subject.total_question %>
+
+<div class="row">
+  <div class="span6 offset3">
+    <% @examination.answer_sheets.each do |answer_sheet| %>
+      <li>
+        <%= answer_sheet.question.content %>
+      </li>
+      <% answer_sheet.question.options.each do |option| %>
+        <%= radio_button_tag "", "", (answer_sheet.option_id == option.id ? true : false) %>
+        <%= option.answer %><br>
+      <% end %>
+    <% end %>
+  </div>
+</div>

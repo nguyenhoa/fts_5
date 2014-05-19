@@ -9,12 +9,15 @@ end
 end
 
 (1..3).each do |i| 
-  Subject.create(name: "Sub#{i}", description: "question for trainning team")
+  Subject.create(name: "Sub#{i}", description: "question for trainning team", total_question: "15", time_limit: "30")
   (1..20).each do |j| 
     Question.create(subject_id: i, content: "question #{i}-#{j}")
-    (1..4).each do |k| 
-      Option.create(question_id: j, answer: "option#{k}_ques #{i}-#{j}")
+    (1..4).each do |k|
+      if k == 1 
+        Option.create(question_id: j, answer: "option#{k}_ques #{i}-#{j}", correct: true)
+      else
+        Option.create(question_id: j, answer: "option#{k}_ques #{i}-#{j}", correct: false)
+      end
     end
   end
-  Exam.create(name: "exam for subject #{i}", subject_id: i, total_question: "15", time_limit: "00:30:00")
 end

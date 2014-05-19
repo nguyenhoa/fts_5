@@ -1,5 +1,0 @@
-<li>
- <%= link_to exam.name, admin_exam_path(exam.id) %>
-  |<%= link_to "edit", edit_admin_exam_path(exam.id) %>
-  |<%= link_to "delete", [:admin, exam], method: :delete, data: { confirm: "You sure?" } %>
-</li>
