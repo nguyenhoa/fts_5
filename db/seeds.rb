@@ -12,8 +12,12 @@ end
   Subject.create(name: "Sub#{i}", description: "question for trainning team", total_question: "15", time_limit: "30")
   (1..20).each do |j| 
     Question.create(subject_id: i, content: "question #{i}-#{j}")
-    (1..4).each do |k| 
-      Option.create(question_id: j, answer: "option#{k}_ques #{i}-#{j}")
+    (1..4).each do |k|
+      if k == 1 
+        Option.create(question_id: j, answer: "option#{k}_ques #{i}-#{j}", correct: true)
+      else
+        Option.create(question_id: j, answer: "option#{k}_ques #{i}-#{j}", correct: false)
+      end
     end
   end
 end

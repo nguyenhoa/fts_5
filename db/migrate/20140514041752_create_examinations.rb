@@ -4,6 +4,7 @@ class CreateExaminations < ActiveRecord::Migration
       t.integer :user_id
       t.integer :subject_id
       t.integer :sum_correct
+      t.integer :status
 
       t.timestamps
     end

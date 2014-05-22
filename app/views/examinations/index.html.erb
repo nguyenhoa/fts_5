@@ -1,0 +1,10 @@
+<% provide(:title, 'All examinations') %>
+<h1>All examinations</h1>
+<div>
+  <%= render :partial => 'examinations/choose_subject' %>
+</div>
+<ul class="examinations">
+  <% @examinations.each do |examination| %>
+    <%= render examination %>
+  <% end %>
+</ul>

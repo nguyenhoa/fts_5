@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20140514042105) do
     t.integer  "user_id"
     t.integer  "subject_id"
     t.integer  "sum_correct"
+    t.integer  "status"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -2,7 +2,7 @@ class ExaminationsController < ApplicationController
   before_action :signed_in_user
 
   def index
-    @examinations = Examination.paginate page: params[:page]
+    @examinations = current_user.examinations.paginate page: params[:page]
   end
 
   def show
@@ -11,14 +11,25 @@ class ExaminationsController < ApplicationController
   end
 
   def new
-    @examination = Examination.new(subject_id: params[:subject_id], sum_correct: 0, user_id: current_user.id)
+    @examination = Examination.new
+  end
+
+  def create
+    @examination = Examination.new(subject_id: params[:subject_id], sum_correct: 0, user_id: current_user.id, status: -1)
+
+    respond_to do |format|
+      if @examination.save
+        format.html { redirect_to examinations_url, notice: "examination created." }
+        format.js
+      end
+    end
+
     if @examination.save
       questions = Question.generate_random_question @examination.subject_id, 
       @examination.subject.total_question
       questions.each do |question|
         AnswerSheet.create(examination_id: @examination.id, question_id: question.id)
       end
-      redirect_to edit_examination_path(@examination)
     end
   end
 
@@ -40,6 +51,7 @@ class ExaminationsController < ApplicationController
         end
       end
     end
+    @examination.update_attributes status: 0
     render "show"
   end
 
