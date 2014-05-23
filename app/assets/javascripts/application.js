@@ -11,8 +11,13 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.plugin.min
+//= require jquery.countdown.min
 //= require jquery_ujs
 //= require bootstrap
 //= require turbolinks
-//= require_tree 
+//= require_tree .
 //= require bootstrap
+
+
+
