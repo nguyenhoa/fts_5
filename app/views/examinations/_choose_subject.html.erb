@@ -1,6 +1,6 @@
 <div class="row">
   <div class="span6 offset3">
-    <%= form_tag url: new_examination_path, method: :get do %>
+    <%= form_tag new_examination_path, method: :get, remote: true do %>
       Subject <%= select_tag 'subject_id', options_from_collection_for_select(Subject.all, :id, :name, params[:subject_id]), include_blank: true %>
       <ul class="add-examination">
         <%= submit_tag "New", class: "btn btn-large btn-primary" %>

@@ -11,25 +11,18 @@ class ExaminationsController < ApplicationController
   end
 
   def new
-    @examination = Examination.new
-  end
-
-  def create
     @examination = Examination.new(subject_id: params[:subject_id], sum_correct: 0, user_id: current_user.id, status: -1)
-
-    respond_to do |format|
-      if @examination.save
-        format.html { redirect_to examinations_url, notice: "examination created." }
-        format.js
-      end
-    end
-
+    @examinations = current_user.examinations.paginate page: params[:page]
     if @examination.save
       questions = Question.generate_random_question @examination.subject_id, 
       @examination.subject.total_question
       questions.each do |question|
         AnswerSheet.create(examination_id: @examination.id, question_id: question.id)
       end
+    end
+    respond_to do |format|
+        format.html { redirect_to examinations_url, notice: "examination created." }
+        format.js
     end
   end
 
