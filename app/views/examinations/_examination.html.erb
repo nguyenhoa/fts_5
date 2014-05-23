@@ -1,7 +1,7 @@
 <% if examination.status == -1 %>
   <li>
     <%= examination.created_at %>|Testing<br>
-    <%= link_to examination.subject.name, examination_path(examination.id) %>|                        
+    <%= link_to examination.subject.name, subject_path(examination.subject.id) %>|                        
     <%= link_to "Start", edit_examination_path(examination.id) %>
   </li>
 <% else %>

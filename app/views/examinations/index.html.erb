@@ -3,8 +3,10 @@
 <div>
   <%= render :partial => 'examinations/choose_subject' %>
 </div>
-<ul class="examinations">
+<%= will_paginate %>
+<ul id="examinations" class="examinations">
   <% @examinations.each do |examination| %>
     <%= render examination %>
   <% end %>
 </ul>
+<%= will_paginate %>
